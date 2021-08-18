@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Empresa", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Nome da empresa</label>
+        <input class="form-control" placeholder="Digite aqui.." id="nome_empresa" name="nome_empresa" />
+        <label id="val_nome_empresa" class="estilo-validar"></label>
+        <br>
+        <label>Endereço da empresa</label>
+        <input class="form-control" placeholder="Digite aqui.." id="endereco_empresa" name="endereco_empresa" />
+        <label id="val_end_empresa" class="estilo-validar"></label>
+        <br>
+        <label>Telefone da empresa</label>
+        <input class="form-control" placeholder="Digite aqui.." id="telefone_empresa" name="telefone_empresa" />
+        <label id="val_tel_empresa" class="estilo-validar"></label>
+        <br>
+    </div>
+    <button type="submit" class="btn btn-success" name="btnSalvar" onclick="return ValidarCampos(2)">Salvar</button>
+}
+

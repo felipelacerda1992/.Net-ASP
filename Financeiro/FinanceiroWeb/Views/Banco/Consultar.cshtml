@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+
+<!-- /. ROW  -->
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <!-- Advanced Tables -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Lista de Bancos
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Código banco</th>
+                                <th>Nome do banco </th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in ViewBag.listaBanco)
+                            {
+                            <tr class="odd gradeX">
+                                <td> @item.codigo_banco</td>
+                                <td> @item.nome_banco</td>
+                                <td>
+                                    <a href="/Banco/Alterar?cod=@item.id_banco&codbanco=@item.codigo_banco&nome=@item.nome_banco" class="btn btn-warning btn-xs">Alterar</a>
+                                </td>
+                            </tr>
+                            }
+
+                            <tr class="odd gradeX">
+                                
+                                <td>
+                                    <a href="banco_alterar.php?cod=" class="btn btn-warning btn-xs">Alterar</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!--End Advanced Tables -->
+    </div>
+</div>
+

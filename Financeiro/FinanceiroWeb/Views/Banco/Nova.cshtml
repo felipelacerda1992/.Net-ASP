@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Banco", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Código do banco</label>
+        <input class="form-control" placeholder="Digite aqui.." id="codigo_banco" name="codigo_banco" />
+        <label id="val_cod_banco" class="estilo-validar"></label>
+        <br>
+        <label>Nome do banco</label>
+        <input class="form-control" placeholder="Digite aqui.." id="nome_banco" name="nome_banco" />
+        <label id="val_nome_banco" class="estilo-validar"></label>
+        <br>
+    </div>
+    <button type="submit" class="btn btn-success" name="btnSalvar" onclick="return ValidarCampos(3)">Salvar</button>
+
+}
+

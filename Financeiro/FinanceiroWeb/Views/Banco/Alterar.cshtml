@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Banco", FormMethod.Post))
+{
+    <input type="hidden" name="cod" value="@ViewBag.cod" />
+    <div class="form-group">
+        <label>Código do banco</label>
+        <input class="form-control" placeholder="Digite aqui.." id="codigo_banco" name="codigo_banco" value="@ViewBag.codbanco" />
+        <label id="val_cod_banco" class="estilo-validar"></label>
+        <br>
+        <label>Nome do banco</label>
+        <input class="form-control" placeholder="Digite aqui.." id="nome_banco" name="nome_banco" value="@ViewBag.nome" />
+        <label id="val_nome_banco" class="estilo-validar"></label>
+        <br>
+    </div>
+    <button type="submit" class="btn btn-success" onclick="return ValidarCampos(3)" name="btn" value="salvar">Salvar</button>
+    <button type="submit" class="btn btn-danger" name="btn" value="excluir">Excluir</button>
+}
+

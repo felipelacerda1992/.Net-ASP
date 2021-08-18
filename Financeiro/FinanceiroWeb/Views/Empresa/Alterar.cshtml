@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+@using (Html.BeginForm("Gravar", "Empresa", FormMethod.Post))
+{
+    <input type="hidden" name="cod" value="@ViewBag.cod" />
+    <div class="form-group">
+        <label>Nome da empresa</label>
+        <input class="form-control" placeholder="Digite aqui.." id="nome_empresa" name="nome_empresa" value="@ViewBag.nome" />
+        <label id="val_nome_empresa" class="estilo-validar"></label>
+        <br>
+        <label>Endereço da empresa</label>
+        <input class="form-control" placeholder="Digite aqui.." id="endereco_empresa" name="endereco_empresa" value="@ViewBag.endereco" />
+        <label id="val_end_empresa" class="estilo-validar"></label>
+        <br>
+        <label>Telefone da empresa</label>
+        <input class="form-control" placeholder="Digite aqui.." id="telefone_empresa" name="telefone_empresa" value="@ViewBag.telefone" />
+        <label id="val_tel_empresa" class="estilo-validar"></label>
+        <br>
+    </div>
+    <button type="submit" class="btn btn-success" onclick="return ValidarCampos(2)" name="btn" value="salvar">Salvar</button>
+    <button type="submit" class="btn btn-danger" name="btn" value="excluir">Excluir</button>
+}
+

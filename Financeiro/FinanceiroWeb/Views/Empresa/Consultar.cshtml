@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        
+        <h2>CONSULTAR EMPRESA</h2>
+        <h5>Aqui você consulta suas empresas!</h5>
+
+    </div>
+</div>
+<!-- /. ROW  -->
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <!-- Advanced Tables -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Lista de Empresas
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome da empresa</th>
+                                <th>Endereço </th>
+                                <th>Telefone </th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in ViewBag.listaEmpresa)
+                            {
+                            <tr class="odd gradeX">
+                                <td> @item.nome_empresa</td>
+                                <td> @item.endereco_empresa</td>
+                                <td> @item.telefone_empresa</td>
+                                <td>
+                                    <a href="/Empresa/Alterar?cod=@item.id_empresa&nome=@item.nome_empresa&endereco=@item.endereco_empresa&telefone=@item.telefone_empresa" class="btn btn-warning btn-xs">Alterar</a>
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!--End Advanced Tables -->
+    </div>
+</div>
+

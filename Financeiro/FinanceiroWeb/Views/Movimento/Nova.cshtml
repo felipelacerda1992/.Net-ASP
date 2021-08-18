@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+@using (Html.BeginForm("Gravar", "Movimento", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="form-group">
+            <label>Tipo de movimentação:</label>
+            <select class="form-control" id="tipo_mov" name="tipo_mov">
+
+                <option value="" selected>Selecione</option>
+                <option value="0">Entreda</option>
+                <option value="1">Saída</option>
+            </select>
+            <label id="val_tipo_mov" class="estilo-validar"></label>
+        </div>
+        <div class="form-group">
+            <label>Data</label>
+            <input type="date" class="form-control" id="data_mov" name="data_mov" />
+            <label id="val_data_mov" class="estilo-validar"></label>
+        </div>
+        <div class="form-group">
+            <label>Selecione a conta:</label>
+            <select class="form-control" id="conta_mov" name="id_conta">
+                <option value="" selected>Selecione</option>
+                @foreach (var item in ViewBag.listaContas)
+                {
+                    <option value="@item.idConta">@item.Agencia</option>
+                }
+            </select>
+            <label id="val_conta_mov" class="estilo-validar"></label>
+        </div>
+        <div class="form-group">
+            <label>Selecione a empresa:</label>
+            <select class="form-control" id="empresa_mov" name="id_empresa">
+
+                <option value="" selected>Selecione</option>
+                @foreach (var item in ViewBag.listaEmpresas)
+                {
+                    <option value="@item.id_empresa">@item.nome_empresa</option>
+                }
+            </select>
+            <label id="val_empresa_mov" class="estilo-validar"></label>
+        </div>
+        <div class="form-group">
+            <label>Selecione a categoria:</label>
+            <select class="form-control" id="categoria_mov" name="id_categoria">
+                <option value="" selected>Selecione</option>
+                @foreach (var item in ViewBag.listaCategorias)
+                {
+                    <option value="@item.id_categoria">@item.nome_categoria</option>
+                }
+            </select>
+            <label id="val_categoria_mov" class="estilo-validar"></label>
+        </div>
+        <div class="form-group">
+            <label>Valor</label>
+            <input type="text" class="form-control" id="valor_mov" name="valor_mov" />
+            <label id="val_valor_mov" class="estilo-validar"></label>
+        </div>
+        <div class="form-group">
+            <label>Observações</label>
+            <textarea class="form-control" rows="3" name="obs_mov"></textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" name="btnSalvar" onclick="return ValidarCampos(99)">Lançar</button>
+}
+

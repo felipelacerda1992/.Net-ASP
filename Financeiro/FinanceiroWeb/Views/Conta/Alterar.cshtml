@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+@using (Html.BeginForm("Gravar", "Conta", FormMethod.Post))
+{
+    <input type="hidden" name="cod" value="@ViewBag.cod" />
+    <div class="form-group">
+        <label>Selecione o banco:</label>
+        <select class="form-control" id="banco_conta" name="id_banco">
+          
+            @foreach (var item in ViewBag.listaBancos)
+            {
+                <option value="@item.id_banco" @{
+                    string marcar = "";
+                    if (item.id_banco == ViewBag.banco)
+                    {
+                        marcar = "selected";
+                    }
+
+                }@marcar >@item.nome_banco</option>
+                    }
+
+        </select>
+        <label>Agência</label>
+        <input class="form-control" placeholder="Digite aqui.." id="agencia_conta" name="agencia_conta" value="@ViewBag.agencia" />
+        <label id="val_ag_conta" class="estilo-validar"></label>
+        <br />
+        <label>Número conta</label>
+        <input class="form-control" placeholder="Digite aqui.." id="numero_conta" name="numero_conta" value="@ViewBag.numero" />
+        <label id="val_num_conta" class="estilo-validar"></label>
+        <br />
+        <label>Saldo</label>
+        <input class="form-control" placeholder="Digite aqui.." id="saldo_conta" name="saldo_conta" value="@ViewBag.saldo" />
+        <label id="val_saldo_conta" class="estilo-validar"></label>
+        <br />
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="status_conta" @{
+                    string check = "";
+                    if (@ViewBag.status == "Ativo")
+                    {
+                        check = "checked";
+                    }
+                } @check />Ativo
+            </label>
+        </div>
+        <br />
+    </div>
+    <button type="submit" class="btn btn-success" name="btn" onclick="return ValidarCampos(4)">Salvar</button>
+    <button type="submit" class="btn btn-danger" name="btn" value="excluir">Excluir</button>
+}
+

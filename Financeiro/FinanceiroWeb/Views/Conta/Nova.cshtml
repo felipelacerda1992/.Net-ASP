@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+@using (Html.BeginForm("Gravar", "Conta", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Selecione o banco:</label>
+        <select class="form-control" id="banco_conta" name="id_banco">
+            <option value="" selected>Selecione</option>
+            @foreach (var item in ViewBag.listaBancos)
+            {
+                <option value="@item.id_banco">@item.nome_banco</option>
+            }
+            </select>
+        <label id="val_ban_conta" class="estilo-validar"></label>
+    </div>
+    <div class="form-group">
+        <label>Agência</label>
+        <input class="form-control" placeholder="Digite aqui.." id="agencia_conta" name="agencia_conta" />
+        <label id="val_ag_conta" class="estilo-validar"></label>
+    </div>
+    <div class="form-group">
+        <label>Número conta</label>
+        <input class="form-control" placeholder="Digite aqui.." id="numero_conta" name="numero_conta" />
+        <label id="val_num_conta" class="estilo-validar"></label>
+    </div>
+    <div class="form-group">
+        <label>Saldo</label>
+        <input class="form-control" placeholder="Digite aqui.." id="saldo_conta" name="saldo_conta" />
+        <label id="val_saldo_conta" class="estilo-validar"></label>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="status_conta" value="1" />Ativo
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" name="btnSalvar" onclick="return ValidarCampos(4)">Salvar</button>
+}
+
